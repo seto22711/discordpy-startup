@@ -25,14 +25,10 @@ async def dice(ctx, max: int = 6):
         else:
             await ctx.send(rand)
 
-    @dice.error
-    async def dice_error(ctx, error):
-        if isinstance(error, commands.BadArgument):
-            await ctx.send('引数は整数で！')
-
-#def setup(bot):
-#    bot.add_cog(UsefulCog(bot))
-
+#    @dice.error
+#    async def dice_error(ctx, error):
+#        if isinstance(error, commands.BadArgument):
+#            await ctx.send('引数は整数で！')
     
 @bot.command()
 async def ping(ctx):
