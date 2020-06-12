@@ -18,10 +18,7 @@ async def on_command_error(ctx, error):
 
 # ユーザー作成コマンド
 @bot.command()
-def __init__(self, bot):
-        self.bot = bot
-
-async def dice(self, ctx, max: int = 6):
+async def dice(ctx, max: int = 6):
         rand = random.randrange(max) + 1
         if max == 6:
             await ctx.send(file=discord.File('images/dice_{}.png'.format(rand)))
@@ -29,7 +26,7 @@ async def dice(self, ctx, max: int = 6):
             await ctx.send(rand)
 
     @dice.error
-    async def dice_error(self, ctx, error):
+    async def dice_error(ctx, error):
         if isinstance(error, commands.BadArgument):
             await ctx.send('引数は整数で！')
 
