@@ -39,6 +39,7 @@ async def on_command_error(ctx, error):
     
 @bot.command()
 async def ping(ctx):
+    await ctx.send('pang')
     
 #@bot.event
 #async def on_message(message):
