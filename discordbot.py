@@ -33,8 +33,9 @@ async def dice(self, ctx, max: int = 6):
         if isinstance(error, commands.BadArgument):
             await ctx.send('引数は整数で！')
 
-def setup(bot):
-    bot.add_cog(UsefulCog(bot))
+#def setup(bot):
+#    bot.add_cog(UsefulCog(bot))
+
     
 @bot.command()
 async def ping(ctx):
