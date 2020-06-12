@@ -16,8 +16,11 @@ async def on_command_error(ctx, error):
     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
     await ctx.send(error_msg)
 
-
+# ユーザー作成コマンド
 @bot.command()
+def __init__(self, bot):
+        self.bot = bot
+
 async def dice(self, ctx, max: int = 6):
         rand = random.randrange(max) + 1
         if max == 6:
