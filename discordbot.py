@@ -28,7 +28,7 @@ async def on_message(message):
         # 入力された内容を受け取る
         say = message.content 
 
-        await ctx.send('input' + say)
+        await ctx.send(say)
         
         # [/dice ]部分を消し、AdBのdで区切ってリスト化する
         order = say.strip('/dice ')
