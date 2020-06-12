@@ -17,24 +17,24 @@ async def on_command_error(ctx, error):
     await ctx.send(error_msg)
 
 # ユーザー作成コマンド
-#@bot.command()
-#def __init__(self, bot):
-#        self.bot = bot
+@bot.command()
+def __init__(self, bot):
+        self.bot = bot
 
-#async def dice(self, ctx, max: int = 6):
-#        rand = random.randrange(max) + 1
-#        if max == 6:
-#            await ctx.send(file=discord.File('images/dice_{}.png'.format(rand)))
-#        else:
-#            await ctx.send(rand)
+async def dice(self, ctx, max: int = 6):
+        rand = random.randrange(max) + 1
+        if max == 6:
+            await ctx.send(file=discord.File('images/dice_{}.png'.format(rand)))
+        else:
+            await ctx.send(rand)
 
-#    @dice.error
-#    async def dice_error(self, ctx, error):
-#        if isinstance(error, commands.BadArgument):
-#            await ctx.send('引数は整数で！')
+    @dice.error
+    async def dice_error(self, ctx, error):
+        if isinstance(error, commands.BadArgument):
+            await ctx.send('引数は整数で！')
 
-#def setup(bot):
-#    bot.add_cog(UsefulCog(bot))
+def setup(bot):
+    bot.add_cog(UsefulCog(bot))
 
     
 @bot.command()
