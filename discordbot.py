@@ -20,15 +20,15 @@ async def on_command_error(ctx, error):
 async def ping(ctx):
     await ctx.send('pang')
     
-@bot.event
-async def on_message(message):
-    if message.author.bot:
-        return
-    if message.content.startswith("/dice"):
+#@bot.event
+#async def on_message(message):
+#    if message.author.bot:
+#        return
+#    if message.content.startswith("/dice"):
         # 入力された内容を受け取る
-        say = message.content 
+#        say = message.content 
 
-        await ctx.send(say)
+#        await ctx.send(say)
         
         # [/dice ]部分を消し、AdBのdで区切ってリスト化する
 #        order = say.strip('/dice ')
