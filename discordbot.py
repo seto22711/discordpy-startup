@@ -1,6 +1,7 @@
 from discord.ext import commands
 import os
 import traceback
+import random
 
 # さいころの和を計算する用の関数
 # from func import  diceroll
@@ -17,18 +18,33 @@ async def on_command_error(ctx, error):
 
 
 @bot.command()
-async def ping(ctx):
-    await ctx.send('pang')
-    
-@bot.event
-async def on_message(message):
-    if message.author.bot:
-        return
-    if message.content.startswith("/dice"):
-        # 入力された内容を受け取る
-        say = message.content 
+async def dice(self, ctx, max: int = 6):
+        rand = random.randrange(max) + 1
+        if max == 6:
+            await ctx.send(file=discord.File('images/dice_{}.png'.format(rand)))
+        else:
+            await ctx.send(rand)
 
-        await ctx.send(say)
+    @dice.error
+    async def dice_error(self, ctx, error):
+        if isinstance(error, commands.BadArgument):
+            await ctx.send('引数は整数で！')
+
+def setup(bot):
+    bot.add_cog(UsefulCog(bot))
+    
+@bot.command()
+async def ping(ctx):
+    
+#@bot.event
+#async def on_message(message):
+#    if message.author.bot:
+#        return
+#    if message.content.startswith("/dice"):
+        # 入力された内容を受け取る
+#        say = message.content 
+
+#        await ctx.send(say)
         
         # [/dice ]部分を消し、AdBのdで区切ってリスト化する
 #        order = say.strip('/dice ')
